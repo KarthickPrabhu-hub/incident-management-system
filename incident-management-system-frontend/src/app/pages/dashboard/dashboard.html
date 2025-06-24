@@ -1,0 +1,39 @@
+<div class="dashboard-wrapper">
+  <h2 class="dashboard-title">👋 Welcome back, Karthick!</h2>
+  <p class="dashboard-subtext">Here’s an overview of incident stats and team status.</p>
+
+  <!-- Summary Cards -->
+  <div class="dashboard-cards">
+    <div class="dashboard-card total">🟢 Total Incidents: {{ total }}</div>
+    <div class="dashboard-card mttr">⏱️ Avg MTTR: {{ avgMTTR }} mins</div>
+    <div class="dashboard-card critical">🔴 Critical: {{ critical }}</div>
+    <div class="dashboard-card high">🟠 High: {{ high }}</div>
+    <div class="dashboard-card low">🟡 Low: {{ low }}</div>
+  </div>
+
+  <!-- Incident Trend Chart -->
+  <div class="dashboard-chart">
+    <h3 class="chart-title">📈 Incident Trend (Past 7 Days)</h3>
+    <canvas baseChart
+      [data]="incidentTrendData"
+      [labels]="incidentTrendLabels"
+      [options]="chartOptions"
+      [legend]="true"
+      [type]="'line'">
+    </canvas>
+  </div>
+<div class="dashboard-pie-chart">
+  <h3 class="chart-pie-title">🥧 Incident Severity Breakdown</h3>
+  <canvas baseChart
+    [data]="incidentSeverityData"
+    [options]="severityChartOptions"
+    [type]="'pie'">
+  </canvas>
+</div>
+
+  <!-- Placeholder for more charts -->
+  <div class="dashboard-placeholder">
+    📊 More charts coming soon (SLA Breaches, Response Time, etc.)
+  </div>
+</div>
+
